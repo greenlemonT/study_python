@@ -17,11 +17,8 @@ while(start<=end):
     if total<length:
         end=mid-1
 
-    elif total==length:
+    else:
         result=mid
-        break
-
-    elif total>length:
         start=mid+1
 
 print(result)
