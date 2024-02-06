@@ -9,10 +9,12 @@ for a in range(1,n+1):
         if a==b:
             graph[a][b]=0
 
+#양방향에 cost 1씩이니까
 for _ in range(m):
     a,b=map(int,input().split())
     graph[a][b]=1
     graph[b][a]=1
+
 #거쳐갈 노드x와 최종목적지 노드k
 x,k=map(int,input().split())
 for k in range(1,n+1):

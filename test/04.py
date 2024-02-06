@@ -1,13 +1,11 @@
-#플로이드 워셜 알고리즘
-#시간복잡도 O(N3)
-INF=int(1e9)
+#도시의개수가 100이하 -> 플로이드워셜가능
+#가장 짧은 간선정보만 저장
 
+INF=int(1e9)
 n=int(input())
 m=int(input())
-#2차원 배열 리스트 만들고 초기화
 graph=[[INF]*(n+1) for _ in range(n+1)]
 
-#(a,a)=0
 for a in range(1,n+1):
     for b in range(1,n+1):
         if a==b:
@@ -15,7 +13,8 @@ for a in range(1,n+1):
 
 for _ in range(m):
     a,b,c=map(int,input().split())
-    graph[a][b]=c
+    if c<graph[a][b]:
+        graph[a][b]=c
 
 for k in range(1,n+1):
     for a in range(1,n+1):
@@ -24,8 +23,8 @@ for k in range(1,n+1):
 
 for a in range(1,n+1):
     for b in range(1,n+1):
-        if graph[a][b]==INF:
-            print("INFINITY", end=' ')
-        else:
-            print(graph[a][b],end=' ')
+            if graph[a][b]==INF:
+                print(0,end=' ')
+            else:
+                print(graph[a][b],end=' ')
     print()
